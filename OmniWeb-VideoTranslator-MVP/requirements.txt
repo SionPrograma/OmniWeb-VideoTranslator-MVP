@@ -1,0 +1,18 @@
+fastapi==0.104.1
+uvicorn==0.24.0
+python-dotenv==1.0.0
+yt-dlp==2023.11.16
+openai-whisper==20231117
+requests==2.31.0
+pydantic==2.5.2
+pydantic-settings==2.1.0
+pydub==0.25.1
+TTS==0.22.0
+aiofiles==23.2.1
+python-multipart==0.0.6
+numpy==1.26.2
+torch==2.1.1
+torchaudio==2.1.1
+ffmpeg-python==0.2.0
+# LibreTranslate usually runs as a separate service or via API. 
+# We'll assume a local or Docker instance and use requests.
