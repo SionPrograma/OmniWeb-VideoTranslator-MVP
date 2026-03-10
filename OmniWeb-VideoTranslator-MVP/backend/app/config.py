@@ -2,14 +2,17 @@ import os
 from pathlib import Path
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
+# PROJECT_ROOT is where .env and requirements.txt are located
+PROJECT_ROOT: Path = Path(__file__).resolve().parent.parent.parent
+
 class Settings(BaseSettings):
     APP_NAME: str = "OmniWeb VideoTranslator MVP"
     DEBUG: bool = True
     
-    # Base paths
-    BASE_DIR: Path = Path(__file__).resolve().parent.parent
-    OUTPUT_DIR: Path = BASE_DIR / "outputs"
-    TEMP_DIR: Path = BASE_DIR / "temp"
+    # Base paths relative to the project root
+    BASE_DIR: Path = PROJECT_ROOT
+    OUTPUT_DIR: Path = PROJECT_ROOT / "outputs"
+    TEMP_DIR: Path = PROJECT_ROOT / "temp"
     
     # Integration URLs
     LIBRETRANSLATE_URL: str = "http://localhost:5000"
@@ -25,7 +28,12 @@ class Settings(BaseSettings):
     TRANSLATION_OUTPUT: Path = OUTPUT_DIR / "translations"
     MERGED_OUTPUT: Path = OUTPUT_DIR / "merged"
 
-    model_config = SettingsConfigDict(env_file=".env", env_file_encoding="utf-8")
+    # Load .env from the project root
+    model_config = SettingsConfigDict(
+        env_file=str(PROJECT_ROOT / ".env"), 
+        env_file_encoding="utf-8",
+        extra="ignore" # Ignore extra fields in .env
+    )
 
     def create_directories(self):
         """Ensure all required directories exist."""

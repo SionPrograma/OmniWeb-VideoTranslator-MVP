@@ -37,4 +37,5 @@ async def root():
     }
 
 if __name__ == "__main__":
-    uvicorn.run("main:app", host="0.0.0.0", port=8000, reload=True)
+    # Import as app.main to ensure uvicorn finds it correctly from the backend folder
+    uvicorn.run("app.main:app", host="0.0.0.0", port=8000, reload=True)

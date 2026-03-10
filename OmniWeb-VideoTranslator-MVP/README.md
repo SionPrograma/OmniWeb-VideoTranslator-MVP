@@ -37,23 +37,31 @@ El proyecto utiliza un pipeline modular orquestado:
 ## Instalación
 
 ### Requisitos Previos
-- **Python 3.11** (Requerido para compatibilidad con modelos de IA).
+- **Python 3.11** (Requerido para compatibilidad con Whisper y TTS). Descárgalo de [python.org](https://www.python.org/downloads/).
 - **FFmpeg** instalado en el sistema y añadido al PATH.
 
-### Configuración del Entorno
+### Configuración Rápida (Recomendado)
+
+Si estás en Windows, puedes usar los scripts automatizados:
+
+1. **Instalar dependencias**: Ejecuta `setup_env_py311.bat`. Este script creará el entorno virtual `.venv` y descargará todo lo necesario.
+2. **Arrancar backend**: Ejecuta `run_backend_py311.bat`.
+
+### Configuración Manual
 
 1. **Crear entorno virtual**:
    ```powershell
-   py -3.11 -m venv venv
-   .\venv\Scripts\activate
+   py -3.11 -m venv .venv
+   .\.venv\Scripts\activate
    ```
 
 2. **Instalar dependencias**:
    ```powershell
+   python -m pip install --upgrade pip setuptools wheel
    pip install -r requirements.txt
    ```
 
-### Ejecución
+### Ejecución Manual
 
 1. **Arrancar el Backend**:
    ```powershell
