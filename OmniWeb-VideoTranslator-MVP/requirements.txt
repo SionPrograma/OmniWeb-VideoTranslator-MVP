@@ -9,15 +9,18 @@ requests==2.31.0
 aiofiles==23.2.1
 
 # AI & Processing
-yt-dlp==2023.11.16
+yt-dlp>=2024.03.10
 openai-whisper==20231117
 TTS==0.22.0
-torch==2.1.1
-torchaudio==2.1.1
+torch==2.4.1
+torchaudio==2.4.1
 numpy==1.26.2
 pydub==0.25.1
 ffmpeg-python==0.2.0
 
-# Critical for Python 3.12+ (whisper/TTS dependencies)
+# Translation Fallback
+deep-translator==1.11.4
+
+# Build tooling required for whisper/TTS installation on Windows
 setuptools==68.2.2
 wheel==0.41.3
